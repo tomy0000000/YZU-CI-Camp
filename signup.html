@@ -1,0 +1,355 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <link rel="icon" href="favicon.ico">
+    <title>2018 無限資戰 - 元智大學資院聯合迎新報名網頁</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <!-- Font Awesome icons CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Page CSS -->
+    <link rel="stylesheet" type="text/css" href="css/signup.css">
+    <link rel="stylesheet" type="text/css" href="css/check-cross-anime.css"> </head>
+
+<body>
+    <div class="container h-auto">
+        <div id="grey-box" class="bg-dark text-white my-auto">
+            <h1 id="title" class="my-3">
+                <span class="word-group">報名四資迎新</span>
+                <span id="seperator" class="word-group"> - </span>
+                <span class="word-group">《無限資戰》</span>
+            </h1>
+            <form id="signup-form">
+                <div class="form-row">
+                    <!-- 姓名、身份證字號、性別 -->
+                    <div class="form-group col-5 col-sm-4">
+                        <input id="name" class="form-control" name="name" type="text" placeholder="姓名" required>
+                        <div id="name-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group col-7 col-sm-4">
+                        <input id="ssn" class="form-control" name="ssn" type="text" placeholder="身份證字號" required>
+                        <div id="ssn-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group col-5 col-sm-4">
+                        <select id="gender" class="form-control" name="gender">
+                            <option selected>性別</option>
+                            <option value="Male">男</option>
+                            <option value="Female">女</option>
+                            <option value="Other">不好說</option>
+                        </select>
+                        <div id="gender-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <!-- 學號、聯絡電話、Email -->
+                    <div class="form-group col-7 col-sm-6 col-md-4">
+                        <input id="studentID" class="form-control" name="studentID" type="number" placeholder="學號" required>
+                        <small id="studentIDHelp" class="form-text text-white">還不知道學號嗎，
+                            <a href="https://portal.yzu.edu.tw/stdno.aspx" target="_new">點這裡</a>
+                        </small>
+                        <div id="studentID-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-4">
+                        <input id="phone" class="form-control" name="phone" type="tel" placeholder="聯絡電話" required>
+                        <div id="phone-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group col-sm-12 col-md-4">
+                        <input id="email" class="form-control" name="email" type="email" placeholder="Email" required>
+                        <div id="email-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <!-- 住家地址 -->
+                    <div class="form-group col-sm-12">
+                        <input id="address" class="form-control" name="address" type="text" placeholder="住家地址" required>
+                        <div id="address-invalid" class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <!-- 飲食習慣、遺傳疾病 -->
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        <select id="eatingHabbit" class="form-control" name="eatingHabbit">
+                            <option selected>飲食習慣</option>
+                            <option value="non-vegan">葷</option>
+                            <option value="vegan">素</option>
+                            <!--
+                            親愛的小探員，恭喜你發現特殊選項。
+                            為了尋找夠格的接班人，我們特別設計了這項考驗。
+                            運用知識送出這個選項吧！
+                            率先拔得頭籌者，獲得獎勵。
+                            <option id="McDagan" value="McDagan">麥當勞歡樂送</option>
+                            -->
+                        </select>
+                        <div id="eatingHabbit-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group col-6">
+                        <input id="disease" class="form-control" name="disease" type="text" placeholder="遺傳疾病">
+                        <small id="diseaseHelp" class="form-text text-white">如果沒有請留空
+                            <br>特殊需求可在下方"其他說明"詳述</small>
+                        <div id="disease-invalid" class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <!-- 衣服尺寸、交通方式、寢具、探員代號 -->
+                <div class="form-row">
+                    <div class="form-group col-6 col-sm-4">
+                        <select id="shirtSize" class="form-control" name="shirtSize">
+                            <option selected>衣服尺寸</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="2XL">2XL</option>
+                        </select>
+                        <small id="shirtSizeHelp" class="form-text text-white" data-toggle="modal" data-target="#shirtSizeBox">
+                            <a href="#">點我查看衣服尺寸</a>
+                        </small>
+                        <div id="shirtSize-invalid" class="invalid-feedback"></div>
+                        <!-- 衣服尺寸表 -->
+                        <div class="modal fade" id="shirtSizeBox" tabindex="-1" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content bg-dark">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="shirtSizeBoxTitle">衣服尺寸表</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span>&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-dark table-striped table-hover">
+                                            <caption>單位：公分</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">部位</th>
+                                                    <th scope="col">S</th>
+                                                    <th scope="col">M</th>
+                                                    <th scope="col">L</th>
+                                                    <th scope="col">XL</th>
+                                                    <th scope="col">2XL</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">身高 (肩頂點)</th>
+                                                    <td>66</td>
+                                                    <td>70</td>
+                                                    <td>73</td>
+                                                    <td>76</td>
+                                                    <td>78</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">胸圍</th>
+                                                    <td>48</td>
+                                                    <td>51</td>
+                                                    <td>54</td>
+                                                    <td>57</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">肩寬</th>
+                                                    <td>44</td>
+                                                    <td>47</td>
+                                                    <td>50</td>
+                                                    <td>53</td>
+                                                    <td>57</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">袖籠</th>
+                                                    <td>22</td>
+                                                    <td>23</td>
+                                                    <td>24</td>
+                                                    <td>25</td>
+                                                    <td>26</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">袖長 (肩點量)</th>
+                                                    <td>20</td>
+                                                    <td>21</td>
+                                                    <td>22</td>
+                                                    <td>23</td>
+                                                    <td>24</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">袖口</th>
+                                                    <td>17</td>
+                                                    <td>18</td>
+                                                    <td>18</td>
+                                                    <td>19</td>
+                                                    <td>19</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">領寬</th>
+                                                    <td>20</td>
+                                                    <td>21</td>
+                                                    <td>21</td>
+                                                    <td>22</td>
+                                                    <td>22</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">領深</th>
+                                                    <td>12</td>
+                                                    <td>13</td>
+                                                    <td>13</td>
+                                                    <td>14</td>
+                                                    <td>14</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">下擺</th>
+                                                    <td>48</td>
+                                                    <td>51</td>
+                                                    <td>54</td>
+                                                    <td>57</td>
+                                                    <td>61</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="modal-footer w-100">
+                                        <div class="mx-auto">
+                                            <button type="button" class="btn btn-success" data-dismiss="modal">我知道了</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-6 col-sm-4">
+                        <select id="transportation" class="form-control" name="transportation">
+                            <option selected>交通方式</option>
+                            <option value="self">自行騎車</option>
+                            <option value="parent">家長接送</option>
+                            <option value="Neili Station">內壢車站</option>
+                        </select>
+                        <div id="transportation-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group col-5 col-sm-4">
+                        <select id="bed" class="form-control" name="bed">
+                            <option selected>寢具</option>
+                            <option value="Ordered">已訂購</option>
+                            <option value="Prepared">自行準備</option>
+                        </select>
+                        <small id="bedHelp" class="form-text text-white">訂購資訊請詳閱各系學會新生包</small>
+                        <div id="bed-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <!-- 緊急聯絡人 -->
+                    <div class="form-group col-7 col-sm-4">
+                        <input id="ec_name" class="form-control" name="ec_name" type="text" placeholder="緊急聯絡人姓名" required>
+                        <div id="ec_name-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group col-5 col-sm-4">
+                        <input id="ec_relationship" class="form-control" name="ec_relationship" type="text" placeholder="關係" required>
+                        <div id="ec_relationship-invalid" class="invalid-feedback"></div>
+                    </div>
+                    <div class="form-group col-7 col-sm-4">
+                        <input id="ec_phone" class="form-control" name="ec_phone" type="tel" placeholder="聯絡電話" required>
+                        <div id="ec_phonevalid" class="invalid-feedback"></div>
+                    </div>
+                </div>
+                <!-- 其他訊息 -->
+                <div class="form-group">
+                    <textarea id="addtionMessage" class="form-control autoExpand" name="addtionMessage" placeholder="其他訊息" data-min-rows="1" rows="1"></textarea>
+                    <small id="addtionMessageHelp" class="form-text text-white">其他可能要注意的事情(?)
+                        <br>或是你有什麼想說的嗎>_
+                        <</small>
+                            <div id="addtionMessage-invalid" class="invalid-feedback"></div>
+                </div>
+                <input id="method" name="method" type="hidden" value="signup"> </form>
+            <button id="submitBtn" class="btn btn-primary btn-lg m-2" type="submit">
+                <i class="fas fa-paper-plane"></i> 探員準備出動！ </button>
+            <!-- <button id="submitBtn" class="btn btn-primary btn-lg m-2" type="submit" disabled> -->
+                <!-- 報名已截止</button> -->
+            <a href="./">
+                <button class="btn btn-secondary btn-lg m-2" type="button">返回主頁</button>
+            </a>
+            <!-- Send Page Modal Box -->
+            <div class="modal fade" id="requestBox" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="requestBoxMsgTitle"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div id="requestBoxBody" class="modal-body">
+                            <div id="success-icon">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                                    <circle class="path circle" fill="none" stroke="#73AF55" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1" />
+                                    <polyline class="path check" fill="none" stroke="#73AF55" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" points="100.2,40.2 51.5,88.8 29.8,67.5 " /> </svg>
+                            </div>
+                            <div id="failed-icon">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
+                                    <circle class="path circle" fill="none" stroke="#D06079" stroke-width="6" stroke-miterlimit="10" cx="65.1" cy="65.1" r="62.1" />
+                                    <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="34.4" y1="37.9" x2="95.8" y2="92.3" />
+                                    <line class="path line" fill="none" stroke="#D06079" stroke-width="6" stroke-linecap="round" stroke-miterlimit="10" x1="95.8" y1="38" x2="34.4" y2="92.2" /> </svg>
+                            </div>
+                            <p id="requestBoxMsgBody"></p>
+                        </div>
+                        <div id="requestBoxFooter" class="modal-footer w-100">
+                            <div class="row mx-auto">
+                                <div class="col-12">
+                                    <a href="assets/4zi.ics">
+                                        <button class="btn btn-light success-btn m-2" type="button">加入Mac/iOS行事曆</button>
+                                    </a>
+                                    <a href="http://www.google.com/calendar/event?action=TEMPLATE&dates=20180820%2F20180824&text=%E5%9B%9B%E8%B3%87%E8%BF%8E%E6%96%B0%20-%20%E3%80%8A%E7%84%A1%E9%99%90%E8%B3%87%E6%88%B0%E3%80%8B&location=%E5%85%83%E6%99%BA%E5%A4%A7%E5%AD%B8%2C%20320%E5%8F%B0%E7%81%A3%E6%A1%83%E5%9C%92%E5%B8%82%E4%B8%AD%E5%A3%A2%E5%8D%80%E9%81%A0%E6%9D%B1%E8%B7%AF135%E8%99%9F&details=%E5%A0%B1%E5%90%8D%E8%B2%BB%E7%94%A8%EF%BC%9A3900%E5%85%83%0A%E7%B9%B3%E8%B2%BB%E6%88%AA%E6%AD%A2%E6%97%A5%EF%BC%9A8%2F18(%E5%85%AD)%0A%E9%9B%86%E5%90%88%E5%85%A5%E5%AE%BF%E6%99%82%E9%96%93%20%3A%0A%E6%97%A9%E4%B8%8A9%3A30%20~%20%E4%B8%8B%E5%8D%8801%3A00%0A%40%E7%94%B7%E5%A5%B3%E4%BA%8C%E5%AE%BF%E8%88%8D%E4%B8%80%E6%A8%93%E5%BB%A3%E5%A0%B4%0Ahttps%3A%2F%2Ffb.me%2FYZUCICamp2018">
+                                        <button class="btn btn-light success-btn m-2" type="button">加入Google行事曆</button>
+                                    </a>
+                                    <a id="checkStatusBtn">
+                                        <button class="btn btn-success success-btn m-2" type="button">檢查報名狀態</button>
+                                    </a>
+                                    <a href="./">
+                                        <button class="btn btn-secondary success-btn m-2" type="button">返回主頁</button>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <input type="hidden" id="debugfield" name="debugfield" value="Txt">
+                                    <a href="#" id="mailreport">
+                                        <button class="btn btn-primary failed-btn m-2 copy-debug" type="button">通知史塔克</button>
+                                    </a>
+                                    <a href="https://m.me/YZUCICamp2018">
+                                        <button class="btn btn-success failed-btn m-2 copy-debug" type="button">私訊粉專</button>
+                                    </a>
+                                    <a href="./">
+                                        <button class="btn btn-secondary failed-btn m-2" type="button">返回主頁</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer -->
+            <footer class="my-3">
+                <p class="my-1">Copyright © 2018 元智四資迎新學術組 保留一切權利。</p>
+                <p class="my-1">網站問題請點下方圖示回報，英雄感謝你！</p>
+                <div id="footer-icon-row" class="row justify-content-center my-2">
+                    <div class="col-2">
+                        <a href="https://fb.me/YZUCICamp2018">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a>
+                    </div>
+                    <div class="col-2">
+                        <a href="https://m.me/YZUCICamp2018">
+                            <i class="fab fa-facebook-messenger fa-2x"></i>
+                        </a>
+                    </div>
+                    <div class="col-2">
+                            <i class="fas fa-phone fa-2x"></i>
+                    </div>
+                    <div class="col-2">
+                            <i class="fas fa-envelope fa-2x"></i>
+                    </div>
+                </div>
+                <!-- End footer -->
+            </footer>
+        </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Page JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="js/signup.js"></script>
+</body>
+
+</html>

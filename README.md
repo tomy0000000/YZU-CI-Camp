@@ -9,7 +9,7 @@ Designed, built, and maintained in coopertaion with @tyzesc.
 
 ## Signup Page
 
-
+Signup Infos are stored in Google Sheet and can be edited at [here](https://docs.google.com/spreadsheets/d/1FXadqC52PV1HLY3sW2u86rq_wYRtP46Dxbsrk6-btzo), DON'T FILLING YOUR REAL PERSONAL INFORMATION WITHOUT DELETING IT.
 
 ## Status Page
 
