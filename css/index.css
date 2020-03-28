@@ -1,0 +1,83 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif
+}
+
+iframe {
+    max-width: 100%;
+    width: 992px;
+    height: 558px;
+    /*height: auto;*/
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+}
+
+footer p {
+    font-size: 10px;
+}
+
+#about>h2,
+#about>p {
+    text-align: center;
+}
+
+#info-box {
+    margin:0 -16px;
+}
+
+.w3-sidebar {
+    width: 120px;
+    background: #222;
+}
+
+.navbar-item {
+    width:25% !important;
+}
+
+.aqua-highlight {
+    color: aqua;
+}
+
+#hero-avatar {
+    width:100%;
+}
+
+#contact {
+    text-align: center;
+}
+
+#main {
+    margin-left: 120px
+}
+
+#signup *{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#footer-icon-row {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Remove margins from "page content" on small screens */
+
+@media only screen and (max-width: 600px) {
+    #main {
+        margin-left: 0
+    }
+}
