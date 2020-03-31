@@ -9,11 +9,12 @@ Signup and status information is stored in Google Sheet and can be edited at [he
 
 ## Home Page
 
-
+![index demo image](demo_img/index.png)
 
 ## Signup Page
 
+![signup demo image](demo_img/signup.png)
 
+## Status Check Page
 
-## Status Page
-
+![check demo image](demo_img/check.png)
