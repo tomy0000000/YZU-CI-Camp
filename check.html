@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <link rel="icon" href="favicon.ico">
+    <title>四資迎新報名狀態查詢系統</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <!-- Font Awesome icons CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- Page CSS -->
+    <link rel="stylesheet" type="text/css" href="css/check-cross-anime.css">
+    <link rel="stylesheet" type="text/css" href="css/check.css">
+</head>
+
+<body>
+    <div class="container h-auto">
+        <div id="grey-box" class="my-auto">
+            <h1 id="title" class="my-3">
+                <span class="word-group">四資迎新</span>
+                <span id="seperator" class="word-group"> </span>
+                <span class="word-group">報名狀態查詢系統</span>
+            </h1>
+            <!-- Login -->
+            <form id="check-form">
+                <input class="form-control" name="method" type="hidden" value="getStatus">
+                <input id="ssn" class="form-control" name="ssn" type="text" placeholder="請輸入身分證字號" autofocus required>
+                <div id="ssn-invalid" class="invalid-feedback"></div>
+            </form>
+            <!-- Table -->
+            <div id="table-container"></div>
+            <!-- footer -->
+            <footer class="my-3">
+                <p class="my-1">Copyright © 2018 元智四資迎新學術組 保留一切權利。</p>
+                <p class="my-1">網站問題請點下方圖示回報，英雄感謝你！</p>
+                <div id="footer-icon-row" class="row justify-content-center my-2">
+                    <div class="col-2">
+                        <a href="https://fb.me/YZUCICamp2018">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a>
+                    </div>
+                    <div class="col-2">
+                        <a href="https://m.me/YZUCICamp2018">
+                            <i class="fab fa-facebook-messenger fa-2x"></i>
+                        </a>
+                    </div>
+                    <div class="col-2">
+                            <i class="fas fa-phone fa-2x"></i>
+                    </div>
+                    <div class="col-2">
+                            <i class="fas fa-envelope fa-2x"></i>
+                    </div>
+                </div>
+                <!-- End footer -->
+            </footer>
+            <!-- Instruction Modal -->
+            <div class="modal fade" id="instruction-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="instructionTitle">繳費資訊</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div id="instructionBody" class="modal-body">
+                            <p class="my-1">截止日：8/18 (六)</p>
+                            <p class="my-1">費用：NT$ 3900</p>
+                            <p class="my-1">銀行：遠東銀行 (805)</p>
+                            <p class="my-1">分行：桃園分行 (0045)</p>
+                            <p class="my-1">帳戶：0040-0110-000-295</p>
+                            <p class="my-1">戶名：元智大學資訊管理學系系學會 林裕翔</p>
+                            <p class="my-1">小提醒：匯款時，可在備註欄加註姓名以利快速辨識</p>
+                        </div>
+                        <div id="instructionFooter" class="modal-footer w-100">
+                            <button type="button" class="btn btn-success mx-auto" data-dismiss="modal">我知道了</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Notify Form Modal -->
+            <div class="modal fade" id="notify-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="notifyTitle">通知已匯款</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div id="notifyBody" class="modal-body">
+                            <form id="notify-form">
+                                <input type="hidden" name="method" value="createTask">
+                                <input type="hidden" name="ssn">
+                                <textarea id="info" class="form-control autoExpand" name="info" placeholder="匯款資訊" data-min-rows="1" rows="1"></textarea>
+                                <small id="infoHelp" class="form-text">請輸入匯款帳號末5碼或其他可辨識之資訊</small>
+                                <div id="info-invalid" class="invalid-feedback"></div>
+                            </form>
+                        </div>
+                        <div id="notifyFooter" class="modal-footer w-100">
+                            <button id="submitBtn" class="btn btn-dark btn-lg mx-auto" type="submit">
+                                <i class="fas fa-paper-plane"></i>瓦干達萬歲</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Page JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script type="text/javascript" src="js/check.js"></script>
+</body>
+
+</html>
